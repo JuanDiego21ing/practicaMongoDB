@@ -43,7 +43,7 @@ async function resetAndSeedDatabase() {
 
       const cuenta = new Cuenta({
         numeroCuenta,
-        clienteId: cliente._id,
+        cliente: cliente._id,
         saldo: saldoInicial
       });
       await cuenta.save();
@@ -53,7 +53,7 @@ async function resetAndSeedDatabase() {
         const cantidad = faker.datatype.number({ min: 100, max: 1000 });
 
         const transaccion = new Transaccion({
-          cuentaId: cuenta._id,
+          cuenta: cuenta._id,
           tipo,
           cantidad,
           fecha: faker.date.past()
