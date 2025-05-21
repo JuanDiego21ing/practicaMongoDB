@@ -1,28 +1,24 @@
-// models/Transaccion.js
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const transaccionSchema = new mongoose.Schema({
   cuenta: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Cuenta',
-    required: true
+    ref: "Cuenta",
+    required: true,
   },
   tipo: {
     type: String,
-    enum: ['ingreso', 'retiro', 'transferencia'],
-    required: true
+    enum: ["deposito", "retiro"],
+    required: true,
   },
-  monto: {
+  cantidad: {
     type: Number,
-    required: true
-  },
-  descripcion: {
-    type: String
+    required: true,
   },
   fecha: {
     type: Date,
-    default: Date.now
-  }
+    default: Date.now,
+  },
 });
 
-module.exports = mongoose.model('Transaccion', transaccionSchema);
+module.exports = mongoose.model("Transaccion", transaccionSchema);
