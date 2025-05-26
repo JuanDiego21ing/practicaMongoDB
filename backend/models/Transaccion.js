@@ -17,10 +17,10 @@ const transaccionSchema = new mongoose.Schema({
   },
   fecha: {
     type: Date,
-    default: Date.now // 👈 Se agrega fecha
+    default: Date.now 
   },
   sucursal: {
-    type: String, // 👈 Se agrega sucursal
+    type: String, 
     required: true
   }
 }, {

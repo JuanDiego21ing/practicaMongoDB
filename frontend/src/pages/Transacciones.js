@@ -9,8 +9,8 @@ function Transacciones() {
     const [error, setError] = useState('');
 
     const handleTransaccion = async () => {
-        if (!numeroCuenta || !monto || isNaN(monto) || parseFloat(monto) <= 0) { // Añadimos validación para monto <= 0
-            setError('Por favor, ingrese un número de cuenta y un monto válido mayor a 0.');
+        if (!numeroCuenta || !monto || isNaN(monto)) {
+            setError('Por favor, ingrese datos válidos.');
             setMensaje('');
             return;
         }
@@ -20,19 +20,17 @@ function Transacciones() {
 
         try {
             const url = tipo === 'deposito' ? '/api/deposito' : '/api/retiro';
-            const response = await axios.post(`http://localhost:5000${url}`, { // << Posible CAMBIO de puerto a 3000
+            const response = await axios.post(`http://localhost:5000${url}`, {
                 numeroCuenta,
-                cantidad: parseFloat(monto), // << CAMBIO: 'monto' a 'cantidad' para el backend
-                sucursal: 'CDMX' // ejemplo fijo, se puede hacer dinámico
+                cantidad: parseFloat(monto),
+                sucursal: 'CDMX' 
             });
 
-            // << CAMBIO: Leer response.data.mensaje
-            setMensaje(`✅ ${response.data.mensaje || 'Transacción exitosa'}`);
+            setMensaje(`✅ ${response.data.message || 'Transacción exitosa'}`);
             setMonto('');
         } catch (err) {
-            // << CAMBIO: Leer err.response.data.error
-            if (err.response && err.response.data && err.response.data.error) {
-                setError(`❌ ${err.response.data.error}`);
+            if (err.response && err.response.data && err.response.data.message) {
+                setError(`❌ ${err.response.data.message}`);
             } else {
                 setError('❌ Error al realizar la transacción');
             }

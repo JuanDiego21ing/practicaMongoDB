@@ -7,7 +7,6 @@ const {
   realizarRetiro,
 } = require("../controllers/transaccionesController");
 
-// POST /api/deposito
 router.post("/deposito", realizarDeposito, async (req, res) => {
   try {
     const { numeroCuenta, cantidad, sucursal } = req.body;
@@ -40,7 +39,6 @@ router.post("/deposito", realizarDeposito, async (req, res) => {
   }
 });
 
-// POST /api/retiro
 router.post("/retiro", realizarRetiro, async (req, res) => {
   try {
     const { numeroCuenta, cantidad, sucursal } = req.body;

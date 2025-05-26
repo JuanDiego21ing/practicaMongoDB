@@ -72,7 +72,7 @@ function Cuentas() {
                     <h3>Información de la Cuenta</h3>
                     <p><strong>Número de Cuenta:</strong> {numeroCuenta}</p>
                     <p><strong>Nombre del Cliente:</strong> {datosCuenta.nombreCliente || 'No disponible'}</p>
-                    <p><strong>Saldo Inicial:</strong> ${typeof datosCuenta.saldoInicial === 'number' ? datosCuenta.saldoInicial.toFixed(2) : datosCuenta.saldoInicial || 'No disponible'}</p>
+                    <p><strong>Saldo Inicial:</strong> ${typeof datosCuenta.saldo === 'number' ? datosCuenta.saldo.toFixed(2) : datosCuenta.saldo || 'No disponible'}</p>
                     
                     {}
                     {datosCuenta.movimientos && datosCuenta.movimientos.length > 0 && (

@@ -1,7 +1,7 @@
 // simuladores/operacionSucursalGDL.js
 const axios = require('axios');
 
-const API_BASE_URL = 'http://localhost:5000/api'; // Asegúrate que este puerto sea el correcto de tu backend
+const API_BASE_URL = 'http://localhost:5000/api'; 
 
 async function simularRetiro(numeroCuenta, monto, sucursal = 'GDL') {
     try {
@@ -15,12 +15,10 @@ async function simularRetiro(numeroCuenta, monto, sucursal = 'GDL') {
         return response.data;
     } catch (error) {
         console.error(`[${sucursal}] Error al retirar:`, error.response ? error.response.data.error : error.message);
-        throw error; // Relanzar el error para Promise.all
+        throw error; 
     }
 }
 
-// Exporta la función para poder usarla en el script principal de simulación
+
 module.exports = simularRetiro;
 
-// Ejemplo de cómo se usaría si lo ejecutas directamente:
-// simularRetiro('6696697091', 50, 'GDL');
