@@ -1,6 +1,7 @@
 # Ignorar node_modules de ambos
 backend/node_modules/
 frontend/node_modules/
+simuladores/node_modules/
 
 # Ignorar entornos
 backend/.env

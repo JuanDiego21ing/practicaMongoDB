@@ -39,7 +39,7 @@ router.get("/:numeroCuenta", async (req, res) => {
       nombreCliente: nombreDelCliente,       
       curp: curpDelCliente,                  
       numeroCuenta: cuenta.numeroCuenta,
-      saldoInicial: cuenta.saldo,           
+      saldo: cuenta.saldo,           
       transacciones: transacciones,
     });
 
